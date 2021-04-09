@@ -45,6 +45,7 @@ class ProductsResolver implements ResolverInterface
     {
         try {
             $searchCriteria = $this->searchCriteriaBuilder->addFilter('entity_id', 1,'gteq')->create();
+            //We have set logic for getting first all the products from ProductRepositoryInterface and apply the custom condition for getting all the products in which ID is equal or greater than 1.
             $products = $this->productRepository->getList($searchCriteria)->getItems();
             $productRecord['allProducts'] = [];
             foreach($products as $product) {
